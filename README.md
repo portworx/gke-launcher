@@ -90,8 +90,22 @@ REPORTING_SECRET_NAMESPACE: Namespace where you installed Portworx
 
 # Upgrade
 
-TODO
+When an upgrade is available in the marketplace you can install the new version with a new name in the same namespace as the
+previous install. This will replace all the components for the Application with the updated version.
+
+You can remove the old version of the Application once all the components in the new version are Running.
 
 # Uninstall
 
-TODO
+**WARNING: Uninstalling Portworx is a destructive process and you will not be able to recover volumes provisioned by
+Portworx. Please use this with caution.**
+
+You can uninstall Portworx from your GKE cluster by running the following command:
+```
+curl -fsL https://install.portworx.com/px-wipe | bash
+```
+
+This will remove all Portworx specific state from the nodes and clean all the disks used by Portworx.
+Once the above script completes succesfully you can delete the Application object created by GCP.
+
+You can find more information [here].(https://docs.portworx.com/portworx-install-with-kubernetes/operate-and-maintain-on-kubernetes/uninstall/uninstall/#uninstall)
